@@ -143,6 +143,7 @@ public:
      * @throw IndexOutOfBound
      */
     void add(int index, const T& element) {
+        if (index <0 || index > size) throw IndexOutOfBound();
         if (Size == save_size) doubleSpace();
         for (int i = Size - 1; i >= index; --i)
             data[i + 1] = data[i];
