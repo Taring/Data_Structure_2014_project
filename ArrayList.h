@@ -104,10 +104,10 @@ public:
             if (save_size != x.save_size) {
                 delete [] (data);
                 save_size = x.save_size;
-                Size = x.Size;
                 data = new T[save_size];
             }
 
+            Size = x.Size;
             for (int i = 0; i < Size; ++i)
                 data[i] = x.data[i];
         }
@@ -121,8 +121,7 @@ public:
         Size = x.Size;
         save_size = x.save_size;
         data = new T[save_size];
-
-        for (int i = 0; i <= Size; ++i)
+        for (int i = 0; i < Size; ++i)
             data[i] = x.data[i];
     }
 
