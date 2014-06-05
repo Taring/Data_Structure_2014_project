@@ -42,11 +42,11 @@ class Deque
         --Size;
         if (direction == 0) {
             --tail;
-            for (int i = Index; i < tail; ++i)
+            for (int i = Index; i <= tail; ++i)
                 data[i] = data[i + 1];
         } else {
             ++head;
-            for (int i = Index; i > head; --i)
+            for (int i = Index; i >= head; --i)
                 data[i] = data[i - 1];
         }
     }
@@ -69,8 +69,8 @@ public:
          * TODO Returns true if the iteration has more elements.
          */
         bool hasNext() {
-            if (direction == 0) return index < container->tail && index >= container->head - 1;
-            if (direction == 1) return index > container->head && index <= container->tail + 1;
+            if (direction == 0) return index <= container->tail - 1 && index >= container->head - 1;
+        	else return index >= container->head + 1 && index <= container->tail + 1;
         }
 
         /**
